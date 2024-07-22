@@ -9,20 +9,20 @@ public class Main {
         shelter.enqueue(new Cat("Ziggy", "Balinese", 5, "Female"));
         shelter.enqueue(new Dog("Shiloh", "Shetland Sheepdog", 8, "Male"));
 
-        // Dequeue animals and display their information
-        Animal animal1 = shelter.dequeueAny();
-        Animal animal2 = shelter.dequeueCat();
-        Animal animal3 = shelter.dequeueDog();
+        // Dequeue animals in good order and show their information
+        Animal anyAnimal = shelter.dequeueAny();
+        Animal cat = shelter.dequeueCat();
+        Animal dog = shelter.dequeueDog();
 
-        printAnimalInfo(animal1);
-        printAnimalInfo(animal2);
-        printAnimalInfo(animal3);
+        System.out.println("Dequeued any: " + formatAnimalInfo(anyAnimal));
+        System.out.println("Dequeued cat: " + formatAnimalInfo(cat));
+        System.out.println("Dequeued dog: " + formatAnimalInfo(dog));
     }
-
-    public static void printAnimalInfo(Animal animal) {
+    public static String formatAnimalInfo(Animal animal) {
         if (animal != null) {
-            System.out.println(animal.getName() + " (" + animal.getBreed() + ") - " + animal.getAge() + " years old, " + animal.getGender());
+            return animal.getName() + " (" + animal.getBreed() + ") - " + animal.getAge() + " years old, " + animal.getGender();
         }
+        return "No animal";
     }
 }
 

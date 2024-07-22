@@ -1,3 +1,4 @@
+
 package Queues;
 
 public abstract class Animal {
